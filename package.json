@@ -16,7 +16,7 @@
   },
   "dependencies": {
     "dotenv": "^16.4.5",
-    "drizzle-orm": "^0.32.2",
+    "drizzle-orm": "^0.28.6",
     "next": "14.2.5",
     "postgres": "^3.4.4",
     "react": "^18",
