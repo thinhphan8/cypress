@@ -5,7 +5,10 @@ import React from "react";
 import db from "@/lib/supabase/db";
 import {ThemeProvider} from "next-themes";
 
-db;
+if (db) {
+    console.log('Database loaded');
+}
+
 const inter = Inter({subsets: ["latin"]});
 
 export const metadata: Metadata = {
@@ -20,15 +23,15 @@ export default function RootLayout({
 }>) {
     return (
         <html lang="en">
-            <body className={inter.className}>
-                <ThemeProvider
-                    attribute="class"
-                    defaultTheme="dark"
-                    enableSystem
-                >
-                    {children}
-                </ThemeProvider>
-            </body>
+        <body className={inter.className}>
+        <ThemeProvider
+            attribute="class"
+            defaultTheme="dark"
+            enableSystem
+        >
+            {children}
+        </ThemeProvider>
+        </body>
         </html>
     );
 }
