@@ -30,7 +30,7 @@ const HomePage = () => {
                 md:items-center"
             >
                 <TitleSection
-                    pill={'Your Workspace, Perfected'}
+                    pill={'✨ Your Workspace, Perfected'}
                     title="All-In-One Collaboration and Productivity Platform"
                 />
                 <div
