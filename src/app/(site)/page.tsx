@@ -243,7 +243,7 @@ const HomePage = () => {
                                                 items-center
                                                 gap-4">
                                             <Avatar>
-                                                <AvatarImage src={`/avatar/${index + 1}.png`}/>
+                                                <AvatarImage src={`/avatars/${index + 1}.png`}/>
                                                 <AvatarFallback>AV</AvatarFallback>
                                             </Avatar>
                                             <div>
@@ -309,15 +309,15 @@ const HomePage = () => {
                                                 rounded-full
                                                 h-32
                                                 absolute
-                                                bg-brand-primaryPurple/90
+                                                bg-brand-primaryPurple/80
                                                 -z-10
                                                 top-0"
-                                            >
-                                                <Image
-                                                    src={Diamond}
-                                                    alt="Pro Plan Icon"
-                                                    className="absolute top-6 right-6"/>
-                                            </div>
+                                            />
+                                            <Image
+                                                src={Diamond}
+                                                alt="Pro Plan Icon"
+                                                className="absolute top-6 right-6"
+                                            />
                                         </>
                                     )}
                                     {card.planType}
