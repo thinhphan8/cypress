@@ -69,7 +69,7 @@ const Signup = () => {
         }
         setConfirmation(true);
     };
-    
+
     return (
         <Form {...form}>
             <form
@@ -129,6 +129,7 @@ const Signup = () => {
                                             {...field}
                                         />
                                     </FormControl>
+                                    <FormMessage />
                                 </FormItem>
                             )}
                         >
@@ -146,6 +147,7 @@ const Signup = () => {
                                             {...field}
                                         />
                                     </FormControl>
+                                    <FormMessage />
                                 </FormItem>
                             )}
                         >
@@ -163,6 +165,7 @@ const Signup = () => {
                                             {...field}
                                         />
                                     </FormControl>
+                                    <FormMessage />
                                 </FormItem>
                             )}
                         >
