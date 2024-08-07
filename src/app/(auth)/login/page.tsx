@@ -10,7 +10,7 @@ import Image from "next/image";
 import Logo from '../../../../public/cypress-logo.svg'
 import {Input} from "@/components/ui/Input";
 import {Button} from "@/components/ui/Button";
-import Loader from "@/components/Loader";
+import Loader from "@/components/global/Loader";
 import {actionLoginUser} from "@/lib/server-actions/auth-actions";
 import {useRouter} from "next/navigation";
 
@@ -86,6 +86,7 @@ const LoginPage = () => {
                                     {...field}
                                 />
                             </FormControl>
+                            <FormMessage/>
                         </FormItem>
                     )}
                 >
@@ -103,6 +104,7 @@ const LoginPage = () => {
                                     {...field}
                                 />
                             </FormControl>
+                            <FormMessage/>
                         </FormItem>
                     )}
                 >

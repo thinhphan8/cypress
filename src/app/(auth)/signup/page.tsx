@@ -11,7 +11,7 @@ import Image from "next/image";
 import Logo from "../../../../public/cypress-logo.svg";
 import {Input} from "@/components/ui/Input";
 import {Button} from "@/components/ui/Button";
-import Loader from "@/components/Loader";
+import Loader from "@/components/global/Loader";
 import {FormSchema} from "@/lib/types";
 import {actionSignUpUser} from "@/lib/server-actions/auth-actions";
 import {MailCheck} from "lucide-react";
