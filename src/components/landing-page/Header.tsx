@@ -222,18 +222,16 @@ const Header = () => {
                         </NavigationMenuContent>
                     </NavigationMenuItem>
                     <NavigationMenuItem>
-                        <Link href={"#"}>
-                            <NavigationMenuLink
-                                className={cn(navigationMenuTriggerStyle(), {
-                                    'dark:text-white': path === '#testimonials',
-                                    'dark:text-white/40': path !== '#testimonials',
-                                    'font-normal': true,
-                                    'text-xl': true,
-                                })}
-                            >
-                                Testimonial
-                            </NavigationMenuLink>
-                        </Link>
+                        <NavigationMenuLink
+                            className={cn(navigationMenuTriggerStyle(), {
+                                'dark:text-white': path === '#testimonials',
+                                'dark:text-white/40': path !== '#testimonials',
+                                'font-normal': true,
+                                'text-xl': true,
+                            })}
+                        >
+                            Testimonial
+                        </NavigationMenuLink>
                     </NavigationMenuItem>
                 </NavigationMenuList>
             </NavigationMenu>
