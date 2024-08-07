@@ -1,15 +1,16 @@
 import type {Metadata} from "next";
-import {Inter} from "next/font/google";
+import {DM_Sans} from "next/font/google";
 import "./globals.css";
 import React from "react";
-import db from "@/lib/supabase/db";
 import {ThemeProvider} from "next-themes";
+import {twMerge} from "tailwind-merge";
 
-if (db) {
-    console.log('Database loaded');
-}
+// import db from "@/lib/supabase/db";
+// if (db) {
+//     console.log('Database loaded');
+// }
 
-const inter = Inter({subsets: ["latin"]});
+const inter = DM_Sans({subsets: ["latin"]});
 
 export const metadata: Metadata = {
     title: "Create Next App",
@@ -22,8 +23,14 @@ export default function RootLayout({
     children: React.ReactNode;
 }>) {
     return (
-        <html lang="en" suppressHydrationWarning={true}>
-        <body className={inter.className} suppressHydrationWarning={true}>
+        <html
+            suppressHydrationWarning={true}
+            lang="en"
+        >
+        <body
+            suppressHydrationWarning={true}
+            className={twMerge("bg-background", inter.className)}
+        >
         <ThemeProvider
             attribute="class"
             defaultTheme="dark"

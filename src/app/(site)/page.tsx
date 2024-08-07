@@ -1,18 +1,18 @@
-import React from "react";
-import TitleSection from "@/components/landing-page/TitleSection";
+import React from 'react';
+import TitleSection from '@/components/landing-page/TitleSection';
 import {Button} from '@/components/ui/Button';
-import Image from "next/image";
-import Banner from "../../../public/app-banner.png"
-import Calender from "../../../public/cal.png"
-import Diamond from "../../../public/icons/diamond.svg"
-import CheckIcon from "../../../public/icons/check.svg"
-import {CLIENTS, PRICING_CARDS, PRICING_PLANS, USERS} from "@/lib/constants";
-import {randomUUID} from "node:crypto";
-import {twMerge} from "tailwind-merge";
-import {clsx} from "clsx";
-import CustomCard from "@/components/landing-page/CustomCard";
-import {Avatar, AvatarFallback, AvatarImage} from "@/components/ui/Avatar";
-import {CardContent, CardDescription, CardTitle} from "@/components/ui/Card";
+import Image from 'next/image';
+import Banner from '../../../public/app-banner.png';
+import Calender from '../../../public/cal.png';
+import Diamond from '../../../public/icons/diamond.svg';
+import CheckIcon from '../../../public/icons/check.svg';
+import {CLIENTS, PRICING_CARDS, PRICING_PLANS, USERS} from '@/lib/constants';
+import {randomUUID} from 'node:crypto';
+import {twMerge} from 'tailwind-merge';
+import {clsx} from 'clsx';
+import CustomCard from '@/components/landing-page/CustomCard';
+import {Avatar, AvatarFallback, AvatarImage} from '@/components/ui/Avatar';
+import {CardContent, CardDescription, CardTitle} from '@/components/ui/Card';
 
 const HomePage = () => {
     return (
