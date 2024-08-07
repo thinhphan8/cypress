@@ -8,6 +8,20 @@
       "when": 1723045840030,
       "tag": "0000_silly_tomas",
       "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "5",
+      "when": 1723046087033,
+      "tag": "0001_far_hannibal_king",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "5",
+      "when": 1723046202248,
+      "tag": "0002_whole_magik",
+      "breakpoints": true
     }
   ]
 }
