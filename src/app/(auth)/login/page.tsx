@@ -119,7 +119,7 @@ const LoginPage = () => {
                 <span className="self-container">
                     Don't have an account?
                     <Link
-                        href="/signup"
+                        href={"/signup"}
                         className="text-primary"
                     >
                         Sign Up
