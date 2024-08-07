@@ -1,61 +1,49 @@
 import React from 'react';
-import {createServerActionClient} from "@supabase/auth-helpers-nextjs";
-import {cookies} from "next/headers";
-import db from "@/lib/supabase/db";
-import {redirect} from "next/navigation";
-import DashboardSetup from "@/components/dashboard-setup/DashboardSetup";
-import {getUserSubscriptionStatus} from "@/lib/supabase/queries";
+import {createServerComponentClient} from '@supabase/auth-helpers-nextjs';
+
+import {cookies} from 'next/headers';
+import db from '@/lib/supabase/db';
+import {redirect} from 'next/navigation';
+import DashboardSetup from '@/components/dashboard-setup/DashboardSetup';
+import {getUserSubscriptionStatus} from '@/lib/supabase/queries';
 
 const DashboardPage = async () => {
-        const supabase = createServerActionClient({cookies});
-        const {data: {user}} = await supabase.auth.getUser();
+    const supabase = createServerComponentClient({ cookies });
 
-        if (!user) {
-            return;
-        }
+    const {
+        data: { user },
+    } = await supabase.auth.getUser();
 
-        const workspace = await db.query.workspaces.findFirst({
-            where: (workspace, {eq}) => eq(workspace.workspaceOwner, user.id),
-        });
+    if (!user) return;
 
-        const {
-            data: subscription,
-            error: subscriptionError
-        } = await getUserSubscriptionStatus(user.id);
+    const workspace = await db.query.workspaces.findFirst({
+        where: (workspace, { eq }) => eq(workspace.workspaceOwner, user.id),
+    });
 
-        if (subscriptionError) {
-            return;
-        }
+    const { data: subscription, error: subscriptionError } =
+        await getUserSubscriptionStatus(user.id);
 
-        if (!workspace) {
-            return (
-                <div
-                    className="
-                bg-background
-                w-screen
-                h-screen
-                flex
-                justify-center
-                items-center"
-                >
-                    <DashboardSetup
-                        user={user}
-                        subscription={subscription}
-                    >
+    if (subscriptionError) return;
 
-                    </DashboardSetup>
-                </div>
-            );
-        }
-
-        redirect(`/dashboard/${workspace.id}`);
-
+    if (!workspace)
         return (
-            <div>
-                Page
+            <div
+                className="bg-background
+        h-screen
+        w-screen
+        flex
+        justify-center
+        items-center
+  "
+            >
+                <DashboardSetup
+                    user={user}
+                    subscription={subscription}
+                />
             </div>
         );
-    }
-;
+
+    redirect(`/dashboard/${workspace.id}`);
+};
 
 export default DashboardPage;
