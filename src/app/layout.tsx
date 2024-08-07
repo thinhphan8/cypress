@@ -4,6 +4,9 @@ import "./globals.css";
 import React from "react";
 import {ThemeProvider} from "next-themes";
 import {twMerge} from "tailwind-merge";
+import AppStateProvider from "@/lib/providers/state-provider";
+import {SupabaseUserProvider} from "@/lib/providers/supabase-user-provider";
+import {Toaster} from "@/components/ui/Toaster";
 
 // import db from "@/lib/supabase/db";
 // if (db) {
@@ -36,7 +39,12 @@ export default function RootLayout({
             defaultTheme="dark"
             enableSystem
         >
-            {children}
+            <AppStateProvider>
+                <SupabaseUserProvider>
+                    {children}
+                    <Toaster/>
+                </SupabaseUserProvider>
+            </AppStateProvider>
         </ThemeProvider>
         </body>
         </html>
