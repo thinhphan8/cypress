@@ -69,11 +69,7 @@ const Signup = () => {
         }
         setConfirmation(true);
     };
-
-    const signUpHandler = () => {
-
-    };
-
+    
     return (
         <Form {...form}>
             <form
@@ -124,7 +120,7 @@ const Signup = () => {
                             disabled={isLoading}
                             control={form.control}
                             name="email"
-                            render={(field) => (
+                            render={({field}) => (
                                 <FormItem>
                                     <FormControl>
                                         <Input
@@ -141,7 +137,7 @@ const Signup = () => {
                             disabled={isLoading}
                             control={form.control}
                             name="password"
-                            render={(field) => (
+                            render={({field}) => (
                                 <FormItem>
                                     <FormControl>
                                         <Input
@@ -158,7 +154,7 @@ const Signup = () => {
                             disabled={isLoading}
                             control={form.control}
                             name="confirmPassword"
-                            render={(field) => (
+                            render={({field}) => (
                                 <FormItem>
                                     <FormControl>
                                         <Input
