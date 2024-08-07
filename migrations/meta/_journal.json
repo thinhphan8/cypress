@@ -5,22 +5,8 @@
     {
       "idx": 0,
       "version": "5",
-      "when": 1722928609093,
-      "tag": "0000_easy_forge",
-      "breakpoints": true
-    },
-    {
-      "idx": 1,
-      "version": "5",
-      "when": 1722928871646,
-      "tag": "0001_cultured_forgotten_one",
-      "breakpoints": true
-    },
-    {
-      "idx": 2,
-      "version": "5",
-      "when": 1722931505871,
-      "tag": "0002_mysterious_aqueduct",
+      "when": 1723045840030,
+      "tag": "0000_silly_tomas",
       "breakpoints": true
     }
   ]
