@@ -77,7 +77,6 @@ const Sidebar: React.FC<SidebarProps> = async (
                         ...sharedWorkspaces
                     ].find(workspace => workspace.id === params.workspaceId)}
                 >
-
                 </WorkspaceDropdown>
             </div>
         </aside>

@@ -38,7 +38,8 @@ const SelectedWorkspace: React.FC<SelectedWorkspaceProps> = (
             hover:bg-muted
             transition-all
             flex-row
-            p-2
+            py-2
+            px-6
             gap-4
             justify-center
             cursor-pointer
