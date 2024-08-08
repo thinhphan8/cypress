@@ -1,7 +1,13 @@
 import React from 'react';
 import {createServerActionClient} from "@supabase/auth-helpers-nextjs";
 import {cookies} from "next/headers";
-import {getFolders, getUserSubscriptionStatus} from "@/lib/supabase/queries";
+import {
+    getCollaboratingWorkspaces,
+    getFolders,
+    getPrivateWorkspaces,
+    getSharedWorkspaces,
+    getUserSubscriptionStatus
+} from "@/lib/supabase/queries";
 import {redirect} from "next/navigation";
 
 interface SidebarProps {
@@ -43,7 +49,13 @@ const Sidebar: React.FC<SidebarProps> = async (
     // }
 
     // Get all the different workspaces (private/collaborating/shared/etc.)
-
+    const [privateWorkspaces, collaboratingWorkspaces, sharedWorkspaces] =
+        await Promise.all([
+            getPrivateWorkspaces(user.id),
+            getCollaboratingWorkspaces(user.id),
+            getSharedWorkspaces(user.id),
+        ]);
+    
     return (
         <div>
             Sidebar
