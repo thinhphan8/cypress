@@ -9,6 +9,8 @@ import {
     getUserSubscriptionStatus
 } from "@/lib/supabase/queries";
 import {redirect} from "next/navigation";
+import {twMerge} from "tailwind-merge";
+import WorkspaceDropdown from "@/components/sidebar/WorkspaceDropdown";
 
 interface SidebarProps {
     params: { workspaceId: string };
@@ -19,7 +21,8 @@ const Sidebar: React.FC<SidebarProps> = async (
     {
         params,
         className
-    }) => {
+    }
+) => {
     const supabase = createServerActionClient({cookies});
 
     // User?
@@ -44,9 +47,9 @@ const Sidebar: React.FC<SidebarProps> = async (
     } = await getFolders(params.workspaceId);
 
     // Errors?
-    // if (subscriptionError || foldersError) {
-    //     redirect('/dashboard');
-    // }
+    if (subscriptionError || foldersError) {
+        redirect('/dashboard');
+    }
 
     // Get all the different workspaces (private/collaborating/shared/etc.)
     const [privateWorkspaces, collaboratingWorkspaces, sharedWorkspaces] =
@@ -55,11 +58,29 @@ const Sidebar: React.FC<SidebarProps> = async (
             getCollaboratingWorkspaces(user.id),
             getSharedWorkspaces(user.id),
         ]);
-    
+
     return (
-        <div>
-            Sidebar
-        </div>
+        <aside
+            className={twMerge(
+                "hidden sm:flex sm:flex-col w-[280px] shrink-0 p-4 md:gap-4 !justify-between",
+                className
+            )}
+        >
+            <div>
+                <WorkspaceDropdown
+                    privateWorkspaces={privateWorkspaces}
+                    collaboratingWorkspaces={collaboratingWorkspaces}
+                    sharedWorkspaces={sharedWorkspaces}
+                    defaultValue={[
+                        ...privateWorkspaces,
+                        ...collaboratingWorkspaces,
+                        ...sharedWorkspaces
+                    ].find(workspace => workspace.id === params.workspaceId)}
+                >
+
+                </WorkspaceDropdown>
+            </div>
+        </aside>
     );
 };
 

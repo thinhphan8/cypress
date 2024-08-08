@@ -1,14 +1,6 @@
-import { InferSelectModel } from 'drizzle-orm';
-import {
-    customers,
-    folders,
-    prices,
-    products,
-    subscriptions,
-    users,
-    workspaces,
-} from '../../../migrations/schema';
-import { files } from './schema';
+import {InferSelectModel} from 'drizzle-orm';
+import {customers, folders, prices, products, subscriptions, users, workspaces,} from '../../../migrations/schema';
+import {files} from './schema';
 
 export type Json =
     | string

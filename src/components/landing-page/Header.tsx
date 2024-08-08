@@ -12,9 +12,9 @@ import {
     NavigationMenuList,
     NavigationMenuTrigger,
     navigationMenuTriggerStyle,
-} from '@/components/ui/NavigationMenu';
+} from '@/components/ui/navigation-menu';
 import {cn} from "@/lib/utils";
-import {Button} from "@/components/ui/Button";
+import {Button} from "@/components/ui/button";
 
 const routes = [
     {title: "Features", href: "#features"},

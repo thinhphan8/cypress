@@ -1,11 +1,11 @@
 'use client';
 
-import { AuthUser } from '@supabase/supabase-js';
-import { Subscription } from '../supabase/supabase.types';
-import React, { createContext, useContext, useEffect, useState } from 'react';
-import { createClientComponentClient } from '@supabase/auth-helpers-nextjs';
-import { getUserSubscriptionStatus } from '../supabase/queries';
-import { useToast } from '@/components/ui/UseToast';
+import {AuthUser} from '@supabase/supabase-js';
+import {Subscription} from '@/lib/supabase/supabase.types';
+import React, {createContext, useContext, useEffect, useState} from 'react';
+import {createClientComponentClient} from '@supabase/auth-helpers-nextjs';
+import {getUserSubscriptionStatus} from '@/lib/supabase/queries';
+import {useToast} from '@/components/ui/use-toast';
 
 type SupabaseUserContextType = {
     user: AuthUser | null;
@@ -30,21 +30,21 @@ export const SupabaseUserProvider: React.FC<SupabaseUserProviderProps> = ({
                                                                           }) => {
     const [user, setUser] = useState<AuthUser | null>(null);
     const [subscription, setSubscription] = useState<Subscription | null>(null);
-    const { toast } = useToast();
+    const {toast} = useToast();
 
     const supabase = createClientComponentClient();
 
-    //Fetch the user details
-    //subscript
+    // Fetch the user details
+    // Subscription
     useEffect(() => {
         const getUser = async () => {
             const {
-                data: { user },
+                data: {user},
             } = await supabase.auth.getUser();
             if (user) {
                 console.log(user);
                 setUser(user);
-                const { data, error } = await getUserSubscriptionStatus(user.id);
+                const {data, error} = await getUserSubscriptionStatus(user.id);
                 if (data) setSubscription(data);
                 if (error) {
                     toast({
@@ -58,7 +58,7 @@ export const SupabaseUserProvider: React.FC<SupabaseUserProviderProps> = ({
         getUser().then();
     }, [supabase, toast]);
     return (
-        <SupabaseUserContext.Provider value={{ user, subscription }}>
+        <SupabaseUserContext.Provider value={{user, subscription}}>
             {children}
         </SupabaseUserContext.Provider>
     );

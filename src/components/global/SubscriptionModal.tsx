@@ -1,13 +1,13 @@
 'use client';
 import {useSubscriptionModal} from '@/lib/providers/subscription-modal-provider';
 import React, {useState} from 'react';
-import {Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle,} from '../ui/Dialog';
+import {Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle,} from '@/components/ui/dialog';
 import {useSupabaseUser} from '@/lib/providers/supabase-user-provider';
 import {formatPrice, postData} from '@/lib/utils';
-import {Button} from '../ui/Button';
-import Loader from './Loader';
+import {Button} from '@/components/ui/button';
+import Loader from '@/components/global/Loader';
 import {Price, ProductWirhPrice} from '@/lib/supabase/supabase.types';
-import {useToast} from '../ui/UseToast';
+import {useToast} from '@/components/ui/use-toast';
 import {getStripe} from '@/lib/stripe/stripe-client';
 
 interface SubscriptionModalProps {

@@ -1,17 +1,8 @@
 'use client';
-import { useToast } from '@/components/ui/UseToast';
-import React, {
-    Dispatch,
-    SetStateAction,
-    createContext,
-    useContext,
-    useEffect,
-    useState,
-} from 'react';
-import { useSupabaseUser } from './subscription-user-provider';
-import { getUserSubscriptionStatus } from '../supabase/queries';
+
+import React, {createContext, Dispatch, SetStateAction, useContext, useState,} from 'react';
 import SubscriptionModal from '@/components/global/SubscriptionModal';
-import { ProductWirhPrice } from '../supabase/supabase.types';
+import {ProductWirhPrice} from '@/lib/supabase/supabase.types';
 
 type SubscriptionModalContextType = {
     open: boolean;
@@ -20,7 +11,8 @@ type SubscriptionModalContextType = {
 
 const SubscriptionModalContext = createContext<SubscriptionModalContextType>({
     open: false,
-    setOpen: () => {},
+    setOpen: () => {
+    },
 });
 
 export const useSubscriptionModal = () => {
@@ -37,9 +29,9 @@ export const SubscriptionModalProvider = ({
     const [open, setOpen] = useState(false);
 
     return (
-        <SubscriptionModalContext.Provider value={{ open, setOpen }}>
+        <SubscriptionModalContext.Provider value={{open, setOpen}}>
             {children}
-            <SubscriptionModal products={products} />
+            <SubscriptionModal products={products}/>
         </SubscriptionModalContext.Provider>
     );
 };

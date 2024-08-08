@@ -1,7 +1,7 @@
 import React from 'react';
 import {useRouter} from "next/navigation";
 import dynamic from "next/dynamic";
-import {Popover, PopoverContent, PopoverTrigger} from "@/components/ui/Popover";
+import {Popover, PopoverContent, PopoverTrigger} from "@/components/ui/popover";
 
 interface EmojiPickerProps {
     children?: React.ReactNode;

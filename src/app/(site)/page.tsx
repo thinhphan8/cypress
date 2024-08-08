@@ -1,6 +1,6 @@
 import React from 'react';
 import TitleSection from '@/components/landing-page/TitleSection';
-import {Button} from '@/components/ui/Button';
+import {Button} from '@/components/ui/button';
 import Image from 'next/image';
 import Banner from '../../../public/app-banner.png';
 import Calender from '../../../public/cal.png';
@@ -11,8 +11,8 @@ import {randomUUID} from 'node:crypto';
 import {twMerge} from 'tailwind-merge';
 import {clsx} from 'clsx';
 import CustomCard from '@/components/landing-page/CustomCard';
-import {Avatar, AvatarFallback, AvatarImage} from '@/components/ui/Avatar';
-import {CardContent, CardDescription, CardTitle} from '@/components/ui/Card';
+import {Avatar, AvatarFallback, AvatarImage} from '@/components/ui/avatar';
+import {CardContent, CardDescription, CardTitle} from '@/components/ui/card';
 
 const HomePage = () => {
     return (
@@ -277,15 +277,17 @@ const HomePage = () => {
                     subheading="Experience all the benefits of our platform. Select a plan that suits your needs and take your productivity to new heights."
                     pill="Pricing"
                 />
-                <div className="
-                flex
-                flex-col-reverse
-                sm:flex-row
-                gap-4
-                justify-center
-                sm:items-stretch
-                items-center
-                mt-10">
+                <div
+                    className="
+                    flex
+                    flex-col-reverse
+                    sm:flex-row
+                    gap-4
+                    justify-center
+                    sm:items-stretch
+                    items-center
+                    mt-10"
+                >
                     {PRICING_CARDS.map((card) => (
                         <CustomCard
                             key={card.planType}

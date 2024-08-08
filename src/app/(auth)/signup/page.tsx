@@ -5,17 +5,17 @@ import {useRouter, useSearchParams} from "next/navigation";
 import {clsx} from "clsx";
 import {useForm} from "react-hook-form";
 import {zodResolver} from "@hookform/resolvers/zod";
-import {Form, FormControl, FormDescription, FormField, FormItem, FormMessage} from "@/components/ui/Form";
+import {Form, FormControl, FormDescription, FormField, FormItem, FormMessage} from "@/components/ui/form";
 import Link from "next/link";
 import Image from "next/image";
 import Logo from "../../../../public/cypress-logo.svg";
-import {Input} from "@/components/ui/Input";
-import {Button} from "@/components/ui/Button";
+import {Input} from "@/components/ui/input";
+import {Button} from "@/components/ui/button";
 import Loader from "@/components/global/Loader";
 import {FormSchema} from "@/lib/types";
 import {actionSignUpUser} from "@/lib/server-actions/auth-actions";
 import {MailCheck} from "lucide-react";
-import {Alert, AlertDescription, AlertTitle} from "@/components/ui/Alert";
+import {Alert, AlertDescription, AlertTitle} from "@/components/ui/alert";
 
 const SignUpFormSchema = z.object({
     email: z

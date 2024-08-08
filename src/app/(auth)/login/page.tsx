@@ -4,12 +4,12 @@ import * as z from 'zod';
 import {SubmitHandler, useForm} from 'react-hook-form';
 import {zodResolver} from '@hookform/resolvers/zod';
 import {FormSchema} from '@/lib/types';
-import {Form, FormControl, FormDescription, FormField, FormItem, FormMessage} from "@/components/ui/Form";
+import {Form, FormControl, FormDescription, FormField, FormItem, FormMessage} from "@/components/ui/form";
 import Link from "next/link";
 import Image from "next/image";
 import Logo from '../../../../public/cypress-logo.svg'
-import {Input} from "@/components/ui/Input";
-import {Button} from "@/components/ui/Button";
+import {Input} from "@/components/ui/input";
+import {Button} from "@/components/ui/button";
 import Loader from "@/components/global/Loader";
 import {actionLoginUser} from "@/lib/server-actions/auth-actions";
 import {useRouter} from "next/navigation";

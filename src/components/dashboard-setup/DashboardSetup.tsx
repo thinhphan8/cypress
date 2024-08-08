@@ -2,21 +2,21 @@
 
 import React, {useState} from 'react';
 import {AuthUser} from "@supabase/supabase-js";
-import {Card, CardContent, CardDescription, CardHeader, CardTitle} from "@/components/ui/Card";
+import {Card, CardContent, CardDescription, CardHeader, CardTitle} from "@/components/ui/card";
 import EmojiPicker from "@/components/global/EmojiPicker";
 import {SubmitHandler, useForm} from "react-hook-form";
-import {Input} from '@/components/ui/Input';
-import {Label} from "@/components/ui/Label";
+import {Input} from '@/components/ui/input';
+import {Label} from "@/components/ui/label";
 import {Subscription, workspace} from "@/lib/supabase/supabase.types";
 import {CreateWorkspaceFormSchema} from "@/lib/types";
 import {z} from 'zod';
-import {useToast} from "@/components/ui/UseToast";
+import {useToast} from "@/components/ui/use-toast";
 import {useRouter} from "next/navigation";
 import {useAppState} from '@/lib/providers/state-provider';
 import {createClientComponentClient} from "@supabase/auth-helpers-nextjs";
 import {v4} from "uuid";
 import {createWorkspace} from "@/lib/supabase/queries";
-import {Button} from "@/components/ui/Button";
+import {Button} from "@/components/ui/button";
 import Loader from "@/components/global/Loader";
 
 interface DashboardSetupProps {
