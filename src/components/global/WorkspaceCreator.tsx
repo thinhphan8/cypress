@@ -172,13 +172,14 @@ const WorkspaceCreator = () => {
                                 collaborators.map((c) => (
                                     <div
                                         className="
-                                        p-4
+                                        py-4
+                                        px-2
                                         flex
                                         justify-between
                                         items-center"
                                         key={c.id}
                                     >
-                                        <div className="flex gap-4 items-center">
+                                        <div className="flex gap-1 items-center">
                                             <Avatar>
                                                 <AvatarImage src="/avatars/7.png"/>
                                                 <AvatarFallback>PJ</AvatarFallback>
@@ -186,7 +187,6 @@ const WorkspaceCreator = () => {
                                             <div
                                                 className="
                                                 text-sm
-                                                gap-2
                                                 text-muted-foreground
                                                 overflow-hidden
                                                 overflow-ellipsis
