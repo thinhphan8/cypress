@@ -99,12 +99,11 @@ const Sidebar: React.FC<SidebarProps> = async (
                         from-background
                         to-transparent
                         z-40"
-                    >
-                        <FoldersDropdownList
-                            workspaceFolders={workspaceFolderData || []}
-                            workspaceId={params.workspaceId}
-                        />
-                    </div>
+                    />
+                    <FoldersDropdownList
+                        workspaceFolders={workspaceFolderData || []}
+                        workspaceId={params.workspaceId}
+                    />
                 </ScrollArea>
             </div>
         </aside>

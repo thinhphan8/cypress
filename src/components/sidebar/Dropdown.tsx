@@ -40,7 +40,7 @@ const Dropdown: React.FC<DropdownProps> = ({
     const [isEditing, setIsEditing] = useState(false);
     const router = useRouter();
 
-    //folder Title synced with server data and local
+    // Folder Title synced with server data and local
     const folderTitle: string | undefined = useMemo(() => {
         if (listType === 'folder') {
             const stateTitle = state.workspaces
@@ -51,8 +51,7 @@ const Dropdown: React.FC<DropdownProps> = ({
         }
     }, [state, listType, workspaceId, id, title]);
 
-    //fileItitle
-
+    // File title
     const fileTitle: string | undefined = useMemo(() => {
         if (listType === 'file') {
             const fileAndFolderId = id.split('folder');
@@ -65,26 +64,22 @@ const Dropdown: React.FC<DropdownProps> = ({
         }
     }, [state, listType, workspaceId, id, title]);
 
-    //Navigate the user to a different page
+    // Navigate the user to a different page
     const navigatatePage = (accordionId: string, type: string) => {
         if (type === 'folder') {
             router.push(`/dashboard/${workspaceId}/${accordionId}`);
         }
         if (type === 'file') {
-            router.push(
-                `/dashboard/${workspaceId}/${folderId}/${
-                    accordionId.split('folder')[1]
-                }`
-            );
+            router.push(`/dashboard/${workspaceId}/${folderId}/${accordionId.split('folder')[1]}`);
         }
     };
 
-    //double click handler
+    // Double click handler
     const handleDoubleClick = () => {
         setIsEditing(true);
     };
-    //blur
 
+    // Blur
     const handleBlur = async () => {
         if (!isEditing) return;
         setIsEditing(false);
@@ -115,7 +110,7 @@ const Dropdown: React.FC<DropdownProps> = ({
         }
     };
 
-    //onchanges
+    // onChanges
     const onChangeEmoji = async (selectedEmoji: string) => {
         if (!workspaceId) return;
         if (listType === 'folder') {
