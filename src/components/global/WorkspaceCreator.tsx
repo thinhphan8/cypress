@@ -1,7 +1,7 @@
 'use client';
 import {useSupabaseUser} from '@/lib/providers/supabase-user-provider';
 import {User, workspace} from '@/lib/supabase/supabase.types';
-import {useRouter} from 'next/navigation';
+import {redirect, useRouter} from 'next/navigation';
 import React, {useState} from 'react';
 import {Label} from '@/components/ui/label';
 import {Input} from '@/components/ui/input';
@@ -61,6 +61,8 @@ const WorkspaceCreator = () => {
             }
         }
         setIsLoading(false);
+        // Temporarily solution in attempt to close the workspace creator dialog after create a workspace
+        window.location.reload();
     };
 
     return (
