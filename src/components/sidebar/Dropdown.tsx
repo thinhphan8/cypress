@@ -24,15 +24,17 @@ interface DropdownProps {
     disabled?: boolean;
 }
 
-const Dropdown: React.FC<DropdownProps> = ({
-                                               title,
-                                               id,
-                                               listType,
-                                               iconId,
-                                               children,
-                                               disabled,
-                                               ...props
-                                           }) => {
+const Dropdown: React.FC<DropdownProps> = (
+    {
+        title,
+        id,
+        listType,
+        iconId,
+        children,
+        disabled,
+        ...props
+    }
+) => {
     const supabase = createClientComponentClient();
     const {toast} = useToast();
     const {user} = useSupabaseUser();
@@ -300,19 +302,21 @@ const Dropdown: React.FC<DropdownProps> = ({
         >
             <AccordionTrigger
                 id={listType}
-                className="hover:no-underline
-        p-2 
-        dark:text-muted-foreground 
-        text-sm"
+                className="
+                hover:no-underline
+                p-2
+                dark:text-muted-foreground
+                text-sm"
                 disabled={listType === 'file'}
             >
                 <div className={groupIdentifies}>
                     <div
-                        className="flex
-          gap-4 
-          items-center 
-          justify-center 
-          overflow-hidden"
+                        className="
+                        flex
+                         gap-4
+                         items-center
+                         justify-center
+                         overflow-hidden"
                     >
                         <div className="relative">
                             <EmojiPicker getValue={onChangeEmoji}>{iconId}</EmojiPicker>
