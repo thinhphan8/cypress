@@ -15,6 +15,7 @@ import PlanUsage from "@/components/sidebar/PlanUsage";
 import NativeNavigation from "@/components/sidebar/NativeNavigation";
 import {ScrollArea} from "@/components/ui/scroll-area";
 import FoldersDropdownList from "@/components/sidebar/FoldersDropdownList";
+import UserCard from "@/components/sidebar/UserCard";
 
 interface SidebarProps {
     params: { workspaceId: string };
@@ -106,6 +107,7 @@ const Sidebar: React.FC<SidebarProps> = async (
                     />
                 </ScrollArea>
             </div>
+            <UserCard subscription={subscriptionData} />
         </aside>
     );
 };
