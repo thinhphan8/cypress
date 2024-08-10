@@ -7,6 +7,7 @@ import {twMerge} from "tailwind-merge";
 import AppStateProvider from "@/lib/providers/state-provider";
 import {SupabaseUserProvider} from "@/lib/providers/supabase-user-provider";
 import {Toaster} from "@/components/ui/toaster";
+export const dynamic = 'force-dynamic'
 
 // import db from "@/lib/supabase/db";
 // if (db) {
