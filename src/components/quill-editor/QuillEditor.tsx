@@ -78,24 +78,29 @@ const QuillEditor: React.FC<QuillEditorProps> = (
     }, [state, workspaceId, folderId]);
 
     //
-    const wrapperRef = useCallback(async (wrapper: any) => {
-        if (typeof window !== "undefined") {
-            if (wrapper === null) {
-                return;
-            }
-            wrapper.innerHTML = "";
-            const editor = document.createElement("div");
-            wrapper.append(editor);
-            const Quill = (await import("quill")).default;
-            // WIP cursors
-            const q = new Quill(editor, {
-                theme: 'snow',
-                modules: {
-                    toolbar: TOOLBAR_OPTIONS,
-                    // WIP cursors
+    const initializeQuill = async (wrapper: HTMLDivElement) => {
+        if (wrapper === null) return;
+        wrapper.innerHTML = '';
+        const editor = document.createElement('div');
+        wrapper.append(editor);
+        const Quill = (await import('quill')).default;
+        const QuillCursors = (await import('quill-cursors')).default;
+        Quill.register('modules/cursors', QuillCursors);
+        const q = new Quill(editor, {
+            theme: 'snow',
+            modules: {
+                toolbar: TOOLBAR_OPTIONS,
+                cursors: {
+                    transformOnTextChange: true,
                 },
-            });
-            setQuill(q);
+            },
+        });
+        setQuill(q);
+    };
+
+    const wrapperRef = useCallback((wrapper: HTMLDivElement | null) => {
+        if (typeof window !== 'undefined' && wrapper !== null) {
+            initializeQuill(wrapper).then();
         }
     }, []);
 
@@ -211,8 +216,7 @@ const QuillEditor: React.FC<QuillEditorProps> = (
                     id="container"
                     className="max-w-[800px]"
                     ref={wrapperRef}
-                >
-                </div>
+                ></div>
             </div>
 
         </>
