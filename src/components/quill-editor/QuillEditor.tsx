@@ -1,7 +1,7 @@
 'use client';
 
 import React, {useCallback, useMemo, useState} from 'react';
-import {Folder, workspace} from "@/lib/supabase/supabase.types";
+import {File, Folder, workspace} from "@/lib/supabase/supabase.types";
 import {useAppState} from "@/lib/providers/state-provider";
 import 'quill/dist/quill.snow.css'
 import {Button} from "@/components/ui/button";
